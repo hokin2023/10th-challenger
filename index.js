@@ -32,10 +32,10 @@ sgvString +=  `<text x="150" y="130" text-anchor="middle" font-size="40" fill="$
 
 sgvString += `</g>`
 
-sgvString += `</sgv>`
+sgvString += `</svg>`
 
 fs.writeFile('logo.svg', sgvString, (err) => {
-    err ? console.log(err) : console.log('Sucessfully generated log.sgv file');
+    err ? console.log(err) : console.log('Sucessfully generated logo.svg file');
 })
 
 }
