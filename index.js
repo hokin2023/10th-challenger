@@ -7,14 +7,16 @@ const { choices } = require('yargs');
 
 function writeToFile (answers) {
 let sgvString = '';
-sgvString += `<svg width="350" height="60" xmlns="http://www.w3.org/2000/svg">`
+sgvString += `<svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg">`
 
-sgvString += `<g>`
+sgvString += `<g>`;
+
+
 
 // sgvString += `${answers.shape}`
 let pickedShape;
 if (answers.shape === 'Triangle') {
-    // pickedShape = new Triangle()
+    pickedShape = new Triangle()
     sgvString 
     += `<polygon points="150, 18 244, 182 56, 182" fill="${answers.shapeBackgroundColor}"/>`;
 }
@@ -26,13 +28,13 @@ if (answers.shape === 'Circle') {
     pickedShape = new Circle()
     sgvString += `<circle cx="150" cy="115" r="80" fill="${answers.shapeBackgroundColor}"/>`;
 }
-sgvString += `<text x="10" y="10" fill="${answers.textColor}">${answers.text}</text>`
+sgvString +=  `<text x="150" y="130" text-anchor="middle" font-size="40" fill="${answers.textColor}">${answers.text}</text>`;
 
 sgvString += `</g>`
 
 sgvString += `</sgv>`
 
-fs.writeFile('logo.sgv', sgvString, (err) => {
+fs.writeFile('logo.svg', sgvString, (err) => {
     err ? console.log(err) : console.log('Sucessfully generated log.sgv file');
 })
 
